@@ -1,6 +1,8 @@
 import React from "react";
-import Marquee from "react-fast-marquee";
+import ReactFastMarquee from "react-fast-marquee";
 import { MARQUEE_TECH } from "../../lib/portfolio-data";
+
+const Marquee = ReactFastMarquee.default || ReactFastMarquee;
 
 export const TechMarquee = () => {
   return (
