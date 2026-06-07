@@ -33,9 +33,9 @@ export const Navbar = () => {
           href="#top"
           data-testid="nav-logo"
           onClick={go("hero")}
-          className="font-serif text-xl font-bold tracking-tight text-white hover:text-lime transition-colors"
+          className="font-serif text-lg font-bold tracking-tight text-white hover:text-lime transition-colors"
         >
-          {PROFILE.firstName}<span className="text-lime">.</span>{PROFILE.lastName.toLowerCase()}
+          Sarthak Jain<span className="text-lime">.</span>
         </a>
 
         {/* Desktop nav */}

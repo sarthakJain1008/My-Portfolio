@@ -63,12 +63,11 @@ export const Hero = () => {
             <motion.h1
               variants={fadeUp} initial="hidden" animate="show" custom={2}
               data-testid="hero-title"
-              className="font-serif font-black tracking-[-0.04em] leading-[0.88] text-white text-6xl sm:text-7xl md:text-8xl lg:text-[10rem]"
+              className="font-serif font-black tracking-[-0.03em] leading-[0.9] text-white text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem]"
             >
-              {PROFILE.firstName}
-              <br />
-              <span className="italic font-medium text-white/90">{PROFILE.lastName}</span>
-              <span className="text-lime lime-text-shadow">.</span>
+              Sarthak{" "}
+              <span className="font-bold text-white">Jain</span>
+              <span className="text-lime" style={{ fontSize: "0.6em", lineHeight: 1 }}>.</span>
             </motion.h1>
           </div>
 
