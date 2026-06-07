@@ -8,16 +8,20 @@ export const TechMarquee = () => {
   return (
     <div
       data-testid="tech-marquee"
-      className="relative border-y border-white/10 py-10 bg-ink overflow-hidden"
+      className="relative border-y border-slate-200 py-5 bg-white overflow-hidden"
     >
-      <Marquee gradient={false} speed={42} pauseOnHover>
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+      <Marquee gradient={false} speed={40} pauseOnHover>
         {MARQUEE_TECH.concat(MARQUEE_TECH).map((tech, i) => (
           <span
             key={i}
-            className="mx-10 font-serif italic font-black text-6xl md:text-7xl lg:text-8xl outline-text select-none"
+            className="mx-8 flex items-center gap-8"
           >
-            {tech}
-            <span className="mx-6 text-lime not-italic">✦</span>
+            <span className="text-sm font-medium tracking-widest uppercase text-charcoal-muted whitespace-nowrap">
+              {tech}
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-teal/40 flex-shrink-0" />
           </span>
         ))}
       </Marquee>

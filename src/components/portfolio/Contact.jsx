@@ -6,7 +6,7 @@ import Section from "./Section";
 import { PROFILE } from "../../lib/portfolio-data";
 
 const inputBase =
-  "w-full bg-transparent border-b border-white/15 px-0 py-4 font-mono text-base text-white placeholder:text-white/30 focus:outline-none focus:border-lime transition-colors";
+  "w-full bg-warm-alt border border-slate-200 rounded-xl px-4 py-3.5 text-base text-charcoal placeholder:text-charcoal-muted/50 focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal transition-all";
 
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -23,7 +23,6 @@ export const Contact = () => {
     }
     setLoading(true);
     try {
-      // Simulate success (no backend in local dev)
       await new Promise((res) => setTimeout(res, 1200));
       toast.success("Message saved. Sarthak will reply within 48h.");
       setSent(true);
@@ -36,63 +35,62 @@ export const Contact = () => {
   };
 
   return (
-    <Section id="contact" label="Contact" title={null}>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+    <Section id="contact" label="Contact" title={null} altBg>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         {/* Left column */}
         <div className="lg:col-span-5">
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-lime mb-4">
-            // Let's build something
+          <p className="text-sm font-medium text-teal mb-4">
+            Let's build something
           </p>
           <h2
             data-testid="contact-title"
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[0.95]"
+            className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-charcoal leading-[1.08]"
           >
-            Got a problem
-            <br />
-            worth <span className="italic text-lime lime-text-shadow">solving</span>?
+            Ready to automate{" "}
+            <span className="gradient-text">the chaos</span>?
           </h2>
-          <p className="mt-8 font-mono text-sm text-white/60 leading-relaxed max-w-md">
+          <p className="mt-6 text-base text-charcoal-muted leading-relaxed max-w-md">
             I take on a small number of engagements each quarter — from MVPs to long-running platform
             builds. Send a brief, even a rough one, and I'll reply within 48 hours.
           </p>
 
-          <div className="mt-12 space-y-4">
+          <div className="mt-10 space-y-2">
             <a
               href={`mailto:${PROFILE.email}`}
               data-testid="contact-email"
-              className="group flex items-center justify-between border-t border-white/10 py-4 hover:text-lime transition-colors"
+              className="group flex items-center justify-between bg-white rounded-xl px-5 py-4 border border-slate-100 hover:border-teal/20 hover:shadow-sm transition-all"
             >
-              <span className="flex items-center gap-3 text-white group-hover:text-lime">
+              <span className="flex items-center gap-3 text-charcoal group-hover:text-teal transition-colors">
                 <Mail className="w-4 h-4" />
-                <span className="font-mono text-sm">{PROFILE.email}</span>
+                <span className="text-sm font-medium">{PROFILE.email}</span>
               </span>
-              <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-lime" />
+              <ArrowUpRight className="w-4 h-4 text-charcoal-muted group-hover:text-teal transition-colors" />
             </a>
             <a
               href={PROFILE.github}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="contact-github"
-              className="group flex items-center justify-between border-t border-white/10 py-4 hover:text-lime transition-colors"
+              className="group flex items-center justify-between bg-white rounded-xl px-5 py-4 border border-slate-100 hover:border-teal/20 hover:shadow-sm transition-all"
             >
-              <span className="flex items-center gap-3 text-white group-hover:text-lime">
+              <span className="flex items-center gap-3 text-charcoal group-hover:text-teal transition-colors">
                 <Github className="w-4 h-4" />
-                <span className="font-mono text-sm">github.com/sarthakJain1008</span>
+                <span className="text-sm font-medium">github.com/sarthakJain1008</span>
               </span>
-              <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-lime" />
+              <ArrowUpRight className="w-4 h-4 text-charcoal-muted group-hover:text-teal transition-colors" />
             </a>
             <a
               href={PROFILE.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               data-testid="contact-linkedin"
-              className="group flex items-center justify-between border-t border-b border-white/10 py-4 hover:text-lime transition-colors"
+              className="group flex items-center justify-between bg-white rounded-xl px-5 py-4 border border-slate-100 hover:border-teal/20 hover:shadow-sm transition-all"
             >
-              <span className="flex items-center gap-3 text-white group-hover:text-lime">
+              <span className="flex items-center gap-3 text-charcoal group-hover:text-teal transition-colors">
                 <Linkedin className="w-4 h-4" />
-                <span className="font-mono text-sm">linkedin · sarthak-jain</span>
+                <span className="text-sm font-medium">LinkedIn · Sarthak Jain</span>
               </span>
-              <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-lime" />
+              <ArrowUpRight className="w-4 h-4 text-charcoal-muted group-hover:text-teal transition-colors" />
             </a>
           </div>
         </div>
@@ -102,16 +100,16 @@ export const Contact = () => {
           <form
             onSubmit={submit}
             data-testid="contact-form"
-            className="border border-white/10 p-8 lg:p-12 bg-ink-surface"
+            className="bg-white rounded-2xl p-8 lg:p-10 border border-slate-100 shadow-sm"
           >
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/40 mb-8">
-              {sent ? "// Thanks for reaching out" : "// New project brief"}
+            <p className="text-sm font-medium text-charcoal-muted mb-6">
+              {sent ? "Thanks for reaching out!" : "New project brief"}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  01 · Your name
+                <label className="text-sm font-medium text-charcoal mb-1.5 block">
+                  Your name
                 </label>
                 <input
                   data-testid="contact-input-name"
@@ -124,8 +122,8 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  02 · Email
+                <label className="text-sm font-medium text-charcoal mb-1.5 block">
+                  Email
                 </label>
                 <input
                   data-testid="contact-input-email"
@@ -138,8 +136,8 @@ export const Contact = () => {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  03 · Subject (optional)
+                <label className="text-sm font-medium text-charcoal mb-1.5 block">
+                  Subject <span className="text-charcoal-muted font-normal">(optional)</span>
                 </label>
                 <input
                   data-testid="contact-input-subject"
@@ -151,8 +149,8 @@ export const Contact = () => {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  04 · Tell me about the project
+                <label className="text-sm font-medium text-charcoal mb-1.5 block">
+                  Tell me about the project
                 </label>
                 <textarea
                   data-testid="contact-input-message"
@@ -166,15 +164,16 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
-              <p className="font-mono text-xs text-white/40">
-                Replies within 48h · Mon–Fri, IST
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+              <p className="text-sm text-charcoal-muted">
+                Replies within 48h · Mon–Fri
               </p>
               <button
                 type="submit"
                 data-testid="contact-submit"
                 disabled={loading}
-                className="group inline-flex items-center justify-center gap-4 px-8 py-4 bg-lime text-black font-mono text-xs uppercase tracking-[0.22em] hover:bg-lime-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-3.5 text-white font-medium rounded-2xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed shadow-[0_4px_16px_rgba(13,148,136,0.35)]"
+                style={{ background: "linear-gradient(135deg, #0D9488, #0F766E)" }}
               >
                 {loading ? (
                   <>
@@ -183,7 +182,7 @@ export const Contact = () => {
                 ) : (
                   <>
                     Send message
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </>
                 )}
               </button>

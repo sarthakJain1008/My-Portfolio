@@ -1,40 +1,36 @@
 import React from "react";
 
-export const Section = ({ id, label, title, kicker, children, className = "" }) => {
+export const Section = ({ id, label, title, kicker, children, className = "", altBg = false }) => {
   return (
     <section
       id={id}
       data-testid={`section-${id}`}
-      className={`relative border-t border-white/10 ${className}`}
+      className={`relative ${altBg ? "bg-warm-alt" : "bg-warm"} ${className}`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 py-24 lg:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16 py-20 lg:py-28">
         {(label || title) && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-24">
-            <div className="lg:col-span-3">
-              {label && (
-                <p
-                  data-testid={`section-${id}-label`}
-                  className="font-mono text-xs uppercase tracking-[0.28em] text-lime"
-                >
-                  // {label}
-                </p>
-              )}
-            </div>
-            <div className="lg:col-span-9">
-              {title && (
-                <h2
-                  data-testid={`section-${id}-title`}
-                  className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]"
-                >
-                  {title}
-                </h2>
-              )}
-              {kicker && (
-                <p className="mt-6 max-w-2xl font-mono text-sm md:text-base text-white/60 leading-relaxed">
-                  {kicker}
-                </p>
-              )}
-            </div>
+          <div className="mb-14 lg:mb-20">
+            {label && (
+              <p
+                data-testid={`section-${id}-label`}
+                className="text-sm font-medium tracking-wide text-teal mb-4"
+              >
+                {label}
+              </p>
+            )}
+            {title && (
+              <h2
+                data-testid={`section-${id}-title`}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-charcoal leading-[1.1]"
+              >
+                {title}
+              </h2>
+            )}
+            {kicker && (
+              <p className="mt-4 max-w-2xl text-base lg:text-lg text-charcoal-muted leading-relaxed">
+                {kicker}
+              </p>
+            )}
           </div>
         )}
         {children}

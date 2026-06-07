@@ -3,7 +3,7 @@ import Section from "./Section";
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "../../lib/portfolio-data";
 
-const ProjectCard = ({ project, large = false }) => {
+const ProjectCard = ({ project }) => {
   const Tag = project.link ? "a" : "div";
   const linkProps = project.link
     ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
@@ -13,9 +13,7 @@ const ProjectCard = ({ project, large = false }) => {
     <Tag
       {...linkProps}
       data-testid={`project-${project.id}`}
-      className={`group relative overflow-hidden border border-white/10 bg-ink-surface flex flex-col cursor-pointer hover:border-lime/40 transition-colors duration-300 ${
-        large ? "lg:col-span-7" : "lg:col-span-5"
-      }`}
+      className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">
@@ -23,46 +21,49 @@ const ProjectCard = ({ project, large = false }) => {
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
         {/* Year badge */}
-        <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.22em] text-lime bg-black/60 px-2 py-1">
-          ({project.id}) · {project.year}
+        <div className="absolute top-4 left-4 text-xs font-medium tracking-wide text-white bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full">
+          {project.year}
         </div>
 
         {/* Arrow button */}
-        <div className="absolute top-4 right-4 w-10 h-10 border border-white/30 inline-flex items-center justify-center text-white/80 group-hover:bg-lime group-hover:text-black group-hover:border-lime transition-colors">
+        <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm inline-flex items-center justify-center text-white group-hover:bg-teal group-hover:text-white transition-colors">
           <ArrowUpRight className="w-4 h-4" />
         </div>
 
         {/* Highlight pill */}
         {project.highlight && (
-          <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.18em] text-black bg-lime px-3 py-1">
-            ✦ {project.highlight}
+          <div className="absolute bottom-4 left-4 text-xs font-medium text-white bg-teal/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+            {project.highlight}
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-6 lg:p-8 flex flex-col flex-1">
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex items-center gap-2 text-xs font-medium text-charcoal-muted mb-2">
           <span>{project.role}</span>
-          <span className="text-white/15">|</span>
+          <span className="text-slate-300">·</span>
           <span>{project.stack.length} tech</span>
         </div>
-        <h3 className="mt-3 font-serif text-2xl lg:text-3xl text-white group-hover:text-lime transition-colors leading-tight">
+        <h3 className="text-xl font-semibold text-charcoal group-hover:text-teal transition-colors leading-tight">
           {project.title}
         </h3>
-        <p className="mt-3 font-mono text-sm text-white/55 leading-relaxed flex-1">
+        {project.subtitle && (
+          <p className="text-sm text-charcoal-muted mt-1">{project.subtitle}</p>
+        )}
+        <p className="mt-3 text-sm text-charcoal-muted leading-relaxed flex-1">
           {project.summary}
         </p>
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           {project.stack.map((t) => (
             <span
               key={t}
-              className="px-2.5 py-1 border border-white/15 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 group-hover:border-lime/30 transition-colors"
+              className="px-2.5 py-1 rounded-full border border-slate-200 text-xs font-medium text-charcoal-muted group-hover:border-teal/20 transition-colors"
             >
               {t}
             </span>
@@ -83,16 +84,16 @@ export const Projects = () => {
     >
       <div
         data-testid="projects-grid"
-        className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-white/10"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
       >
-        {PROJECTS.map((p, i) => (
-          <ProjectCard key={p.id} project={p} large={i === 0} />
+        {PROJECTS.map((p) => (
+          <ProjectCard key={p.id} project={p} />
         ))}
       </div>
 
-      <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 justify-between border-t border-white/10 pt-8">
-        <p className="font-mono text-sm text-white/50">
-          // All projects above are real client work — case studies available on request.
+      <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 justify-between bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+        <p className="text-sm text-charcoal-muted">
+          All projects above are real client work — case studies available on request.
         </p>
         <a
           href="#contact"
@@ -101,9 +102,9 @@ export const Projects = () => {
             document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
           }}
           data-testid="projects-cta"
-          className="inline-flex items-center gap-3 px-5 py-3 border border-white/20 text-white font-mono text-xs uppercase tracking-[0.22em] hover:bg-lime hover:text-black hover:border-lime transition-colors"
+          className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-teal text-white text-sm font-medium rounded-2xl hover:bg-teal-hover transition-colors shadow-sm"
         >
-          Request full case studies <ArrowUpRight className="w-4 h-4" />
+          Request case studies <ArrowUpRight className="w-4 h-4" />
         </a>
       </div>
     </Section>

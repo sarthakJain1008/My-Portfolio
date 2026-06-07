@@ -4,6 +4,7 @@ import Navbar from "./components/portfolio/Navbar";
 import Hero from "./components/portfolio/Hero";
 import TechMarquee from "./components/portfolio/TechMarquee";
 import About from "./components/portfolio/About";
+import HowIWork from "./components/portfolio/HowIWork";
 import Skills from "./components/portfolio/Skills";
 import Projects from "./components/portfolio/Projects";
 import Experience from "./components/portfolio/Experience";
@@ -13,15 +14,15 @@ import Footer from "./components/portfolio/Footer";
 
 const Home = () => {
   return (
-    <div style={{ position: "relative", background: "#050505", minHeight: "100vh" }}>
-      <div className="noise-overlay" aria-hidden="true" />
+    <div style={{ position: "relative", background: "#FAFAF8", minHeight: "100vh" }}>
       <Navbar />
       <main>
         <Hero />
         <TechMarquee />
         <About />
-        <Skills />
+        <HowIWork />
         <Projects />
+        <Skills />
         <Experience />
         <Proof />
         <Contact />
@@ -35,16 +36,16 @@ function App() {
   return (
     <>
       <Toaster
-        theme="dark"
+        theme="light"
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "#0A0A0C",
-            color: "#FAFAFA",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: 0,
-            fontFamily: "JetBrains Mono, monospace",
-            fontSize: "13px",
+            background: "#FFFFFF",
+            color: "#1A1A2E",
+            border: "1px solid #E8E6E3",
+            borderRadius: "12px",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "14px",
           },
         }}
       />

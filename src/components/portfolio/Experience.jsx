@@ -9,48 +9,48 @@ export const Experience = () => {
       label="Experience"
       title="Real work. Real results."
       kicker="Contracted by companies and startups to ship production-grade systems — every metric below is pulled from actual project deliverables."
+      altBg
     >
-      <div data-testid="experience-timeline" className="relative pl-8 lg:pl-16">
+      <div data-testid="experience-timeline" className="relative pl-8 lg:pl-12">
         {/* Vertical line */}
-        <div className="absolute left-2 lg:left-5 top-2 bottom-2 w-px bg-white/10" aria-hidden="true" />
+        <div className="absolute left-3 lg:left-5 top-2 bottom-2 w-[2px] bg-slate-200" aria-hidden="true" />
 
-        <ul className="space-y-16">
+        <ul className="space-y-8">
           {EXPERIENCE.map((item, i) => (
             <li
               key={i}
               data-testid={`experience-${i}`}
               className="relative group"
             >
-              {/* Glowing dot */}
+              {/* Dot */}
               <span
-                className="absolute -left-8 lg:-left-16 top-1.5 w-4 h-4 bg-lime rounded-full transition-all duration-300 group-hover:scale-125"
-                style={{ boxShadow: "0 0 20px rgba(204,255,0,0.5)" }}
+                className="absolute -left-8 lg:-left-12 top-6 w-3.5 h-3.5 bg-teal rounded-full border-[3px] border-warm-alt transition-all duration-300 group-hover:scale-125 z-10"
                 aria-hidden="true"
               />
 
               {/* Card */}
-              <div className="border border-white/10 bg-ink-surface p-6 lg:p-8 hover:border-lime/30 transition-colors duration-300">
+              <div className="bg-white rounded-2xl p-6 lg:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 {/* Header row */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-lime mb-2">
+                    <p className="text-sm font-medium text-teal mb-1.5">
                       {item.period}
                     </p>
-                    <h3 className="font-serif text-2xl lg:text-3xl text-white">
+                    <h3 className="text-xl lg:text-2xl font-semibold text-charcoal">
                       {item.role}
                     </h3>
-                    <p className="mt-1 font-mono text-sm text-white/50">{item.org}</p>
+                    <p className="mt-1 text-sm text-charcoal-muted">{item.org}</p>
                   </div>
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-white/20 border border-white/10 px-3 py-1 h-fit">
+                  <span className="shrink-0 text-xs font-medium text-charcoal-muted/40 border border-slate-200 px-3 py-1 rounded-full h-fit">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Bullets */}
-                <ul className="space-y-3 border-t border-white/10 pt-6">
+                <ul className="space-y-3 border-t border-slate-100 pt-5">
                   {item.bullets.map((b, j) => (
-                    <li key={j} className="flex gap-4 font-mono text-sm text-white/65 leading-relaxed">
-                      <span className="text-lime shrink-0 mt-0.5">▸</span>
+                    <li key={j} className="flex gap-3 text-sm text-charcoal-muted leading-relaxed">
+                      <span className="text-teal shrink-0 mt-0.5 font-bold">›</span>
                       <span>{b}</span>
                     </li>
                   ))}
