@@ -1,5 +1,5 @@
 import React from "react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "../icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsappIcon as Whatsapp } from "../icons";
 import { PROFILE } from "../../lib/portfolio-data";
 
 export const Footer = () => {
@@ -38,6 +38,15 @@ export const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={PROFILE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-white/10 inline-flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all"
+                aria-label="WhatsApp"
+              >
+                <Whatsapp className="w-4 h-4" />
               </a>
             </div>
             <p className="text-sm text-white/50">

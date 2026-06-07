@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "../icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsappIcon as Whatsapp } from "../icons";
 import { PROFILE, STATS } from "../../lib/portfolio-data";
 
 const fadeUp = {
@@ -119,6 +119,14 @@ export const Hero = () => {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              href={PROFILE.whatsapp} target="_blank" rel="noopener noreferrer"
+              data-testid="hero-social-whatsapp"
+              className="w-10 h-10 rounded-xl border border-slate-200 inline-flex items-center justify-center text-charcoal-muted hover:text-teal hover:border-teal/30 transition-all"
+              aria-label="WhatsApp"
+            >
+              <Whatsapp className="w-4 h-4" />
             </a>
           </div>
           <span className="text-sm text-charcoal-muted border-l border-slate-200 pl-3 ml-1">

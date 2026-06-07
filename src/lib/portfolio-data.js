@@ -10,6 +10,7 @@ export const PROFILE = {
   phone: "+91 63756 20702",
   github: "https://github.com/sarthakJain1008",
   linkedin: "https://www.linkedin.com/in/sarthak-jain-a2b887275/",
+  whatsapp: "https://wa.me/916375620702",
   location: "India · Remote-first · Available worldwide",
   status: "Open to freelance engagements — 2026",
   photo: "/sarthak-photo.jpeg",

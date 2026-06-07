@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { Mail, ArrowUpRight, Loader2 } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "../icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsappIcon as Whatsapp } from "../icons";
 import Section from "./Section";
 import { PROFILE } from "../../lib/portfolio-data";
 
@@ -63,6 +63,19 @@ export const Contact = () => {
               <span className="flex items-center gap-3 text-charcoal group-hover:text-teal transition-colors">
                 <Mail className="w-4 h-4" />
                 <span className="text-sm font-medium">{PROFILE.email}</span>
+              </span>
+              <ArrowUpRight className="w-4 h-4 text-charcoal-muted group-hover:text-teal transition-colors" />
+            </a>
+            <a
+              href={PROFILE.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="contact-whatsapp"
+              className="group flex items-center justify-between bg-white rounded-xl px-5 py-4 border border-slate-100 hover:border-teal/20 hover:shadow-sm transition-all"
+            >
+              <span className="flex items-center gap-3 text-charcoal group-hover:text-teal transition-colors">
+                <Whatsapp className="w-4 h-4" />
+                <span className="text-sm font-medium">WhatsApp · +91 63756 20702</span>
               </span>
               <ArrowUpRight className="w-4 h-4 text-charcoal-muted group-hover:text-teal transition-colors" />
             </a>
